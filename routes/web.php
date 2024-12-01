@@ -4,6 +4,7 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\PaymentTypeController;
 use App\Http\Controllers\SaleController;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -17,7 +18,9 @@ Route::middleware([
     'verified',
 ])->group(function () {
     Route::get('/dashboard', function () {
-        return Inertia::render('Dashboard');
+        $query = "SELECT IFNULL(SUM(sold), 0) AS sold, IFNULL(SUM(paid), 0) paid, (IFNULL(SUM(sold), 0) - IFNULL(SUM(paid), 0)) balance FROM sale_payments";
+        $items = DB::select($query);
+        return Inertia::render('Dashboard', compact('items'));
     })->name('dashboard');
     Route::resource('contacts', ContactController::class)
         ->except('destroy');

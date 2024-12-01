@@ -1,6 +1,32 @@
 <script setup>
 import { Link } from '@inertiajs/vue3';
+import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js'
+import { Doughnut } from 'vue-chartjs'
 import AppLayout from '@/Layouts/AppLayout.vue';
+import { ref } from 'vue';
+
+ChartJS.register(ArcElement, Tooltip, Legend)
+
+const props = defineProps({
+    items: Array
+});
+
+const data = ref({
+  labels: ['Sold', 'Received', 'Balance'],
+  datasets: [
+    {
+      backgroundColor: ['#0d6efd', '#188754', '#dc3546'],
+      data: [props.items[0].sold, props.items[0].paid, props.items[0].balance]
+    }
+  ]
+})
+
+const options = ref({
+  responsive: true,
+  maintainAspectRatio: true
+})
+
+
 </script>
 
 <template>
@@ -12,6 +38,33 @@ import AppLayout from '@/Layouts/AppLayout.vue';
             </div>
         </nav>
         <div class="container py-3">
+            <Doughnut
+                id="my-chart-id"
+                :options="options"
+                :data="data"
+            />
+            <div class="row mt-3">
+                <div class="col-12">
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center justify-content-between">
+                                <div class="sold text-center">
+                                    <small class="text-secondary fw-bold">SOLD</small>
+                                    <p class="mb-0 text-primary h6 mt-1">&#8377;{{ props.items[0].sold }}</p>
+                                </div>
+                                <div class="received text-center">
+                                    <small class="text-secondary fw-bold">RECEIVED</small>
+                                    <p class="mb-0 text-success h6 mt-1">&#8377;{{ props.items[0].paid }}</p>
+                                </div>
+                                <div class="balance text-center">
+                                    <small class="text-secondary fw-bold">BALANCE</small>
+                                    <p class="mb-0 text-danger h6 mt-1">&#8377;{{ props.items[0].balance }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="row g-3">
                 <div class="col-4">
                     <Link class="btn btn-outline-primary" :href="route('contacts.index')" style="height: 120px;">
