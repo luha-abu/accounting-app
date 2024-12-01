@@ -47,7 +47,7 @@ const submit = () => {
                     <input type="number" class="form-control" v-model="form.phone">
                 </div>
                 <!-- submit -->
-                <button class="btn btn-success w-100 mt-2 fw-bold">UPDATE</button>
+                <button class="btn btn-success w-100 mt-2 fw-bold">Update</button>
             </form>
         </div>
     </AppLayout>

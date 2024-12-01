@@ -48,8 +48,8 @@ const edit = (paymentType) => {
                     <label for="name" class="form-label">Name</label>
                     <div class="d-flex align-items-center">
                         <input type="text" class="form-control fw-bold me-2" :class="form.errors.name && 'is-invalid'" v-model="form.name">
-                        <button class="btn btn-primary" :class="form.id && 'btn-success'">{{ form.id ? 'Update' : 'Create' }}</button>
-                        <button class="btn btn-secondary ms-2" @click="form.reset();form.clearErrors()" v-if="form.id">Cancel</button>
+                        <button class="btn btn-primary fw-bold" :class="form.id && 'btn-success'">{{ form.id ? 'Update' : 'Create' }}</button>
+                        <button class="btn btn-secondary fw-bold ms-2" @click="form.reset();form.clearErrors()" v-if="form.id">Cancel</button>
                     </div>
                     <small class="fw-bold text-danger" v-if="form.errors.name">{{ form.errors.name }}</small>
                 </div>

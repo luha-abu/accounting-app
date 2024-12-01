@@ -15,7 +15,7 @@ const form = useForm({
     id: props.sale.id,
     sale_id: props.sale.sale_id,
     invoice_no: props.sale.invoice_no,
-    invoice_date: moment(props.sale.invoice_date).format('D-M-y'),
+    invoice_date: moment(props.sale.invoice_date).format('DD-M-y'),
     contact_id: props.sale.contact_id,
     contact_name: props.sale.contact_name,
     payment_id: props.sale.payment_type_id,

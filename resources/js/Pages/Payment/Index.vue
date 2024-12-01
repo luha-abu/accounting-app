@@ -25,7 +25,7 @@ const props = defineProps({
                     </div>
                     <div class="d-flex align-items-center justify-content-between" style="font-size: 80%;">
                         <span>#{{ payment.invoice_no }}</span>
-                        <span>{{ moment(payment.payment_date).format('D-MMM-y') }}</span>
+                        <span>{{ moment(payment.payment_date).format('DD-MMM-y') }}</span>
                         <span class="badge text-bg-warning">{{ payment.payment_name }}</span>
                     </div>
                 </a>

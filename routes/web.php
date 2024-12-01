@@ -4,17 +4,10 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\PaymentTypeController;
 use App\Http\Controllers\SaleController;
-use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
 Route::get('/', function () {
-    // return Inertia::render('Welcome', [
-    //     'canLogin' => Route::has('login'),
-    //     'canRegister' => Route::has('register'),
-    //     'laravelVersion' => Application::VERSION,
-    //     'phpVersion' => PHP_VERSION,
-    // ]);
     return redirect()->route('dashboard');
 });
 
@@ -26,16 +19,6 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return Inertia::render('Dashboard');
     })->name('dashboard');
-    // Route::get('contacts', [ContactController::class, 'index'])
-    //     ->name('contacts.index');
-    // Route::post('contacts', [ContactController::class, 'store'])
-    //     ->name('contacts.store');
-    // Route::get('contacts/create', [ContactController::class, 'create'])
-    //     ->name('contacts.create');
-    // Route::put('contacts/{contact}', [ContactController::class, 'update'])
-    //     ->name('contacts.update');
-    // Route::get('contacts/{contact}/edit', [ContactController::class, 'edit'])
-    //     ->name('contacts.edit');
     Route::resource('contacts', ContactController::class)
         ->except('destroy');
     Route::get('paymentTypes', [PaymentTypeController::class, 'index'])

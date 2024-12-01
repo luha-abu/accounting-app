@@ -63,7 +63,7 @@ const submit = () => {
                         </div>
                     </div>
                 </div>
-                <button class="btn btn-primary w-100">Submit</button>
+                <button class="btn btn-primary fw-bold w-100">Submit</button>
             </form>
         </div>
     </AppLayout>
