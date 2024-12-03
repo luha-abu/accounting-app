@@ -1,9 +1,12 @@
 <script setup>
-import { Link } from '@inertiajs/vue3';
+import { onMounted, ref } from 'vue';
+import { Link, usePage } from '@inertiajs/vue3';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js'
 import { Doughnut } from 'vue-chartjs'
+import { showToast } from '@/Helper/luha';
 import AppLayout from '@/Layouts/AppLayout.vue';
-import { ref } from 'vue';
+
+const page = usePage();
 
 ChartJS.register(ArcElement, Tooltip, Legend)
 
@@ -26,6 +29,11 @@ const options = ref({
   maintainAspectRatio: true
 })
 
+onMounted(() => {
+    if (page.props.flash.message) {
+        showToast(page.props.flash.message);
+    }
+})
 
 </script>
 
@@ -94,6 +102,12 @@ const options = ref({
                     <Link class="btn btn-outline-primary w-100" :href="route('payments.summary')" style="height: 120px;">
                         <i class="bi bi-stripe" style="font-size: 36px;"></i><br>
                         Payment Entry
+                    </Link>
+                </div>
+                <div class="col-4">
+                    <Link class="btn btn-outline-primary w-100" :href="route('auth.password.change')" style="height: 120px;">
+                        <i class="bi bi-pass" style="font-size: 36px;"></i><br>
+                        Change Password
                     </Link>
                 </div>
             </div>

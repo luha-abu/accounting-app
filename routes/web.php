@@ -4,7 +4,10 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\PaymentTypeController;
 use App\Http\Controllers\SaleController;
+use App\Models\User;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -38,4 +41,16 @@ Route::middleware([
     Route::resource('payments', PaymentController::class);
     Route::get('/sale/balance', [SaleController::class, 'getInvoiceBalance'])
         ->name('sale.getInvoiceBalance');
+    Route::get('/auth/password/change', function () {
+        return Inertia::render('Auth/UpdatePassword');
+    })->name('auth.password.change');
+    Route::put('/auth/password/change/{user}', function (Request $request, User $user) {
+        $request->validate([
+            'password' => 'required|confirmed'
+        ]);
+        $user->update([
+            'password' => bcrypt($request->password)
+        ]);
+        return redirect()->route('dashboard')->with('message', 'Password has been updated.');
+    })->name('auth.password.store');
 });
