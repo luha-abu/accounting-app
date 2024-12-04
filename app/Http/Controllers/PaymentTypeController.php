@@ -31,7 +31,7 @@ class PaymentTypeController extends Controller
             'user_id' => $request->user()->id
         ]);
 
-        return redirect()->route('paymentTypes.index');
+        return redirect()->route('paymentTypes.index', ['updated' => true])->with(['message', 'Payment type has been created.']);
     }
 
     /**
@@ -48,6 +48,6 @@ class PaymentTypeController extends Controller
             'user_id' => $request->user()->id
         ]);
 
-        return redirect()->route('paymentTypes.index');
+        return redirect()->route('paymentTypes.index', ['updated' => true])->with(['message', 'Payment type has been updated.']);;
     }
 }

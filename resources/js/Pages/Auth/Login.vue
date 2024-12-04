@@ -35,12 +35,12 @@ const submit = () => {
                 <!-- email -->
                 <div class="form-group mb-3">
                     <label for="email" class="form-label">Email</label>
-                    <input type="email" class="form-control" v-model="form.email">
+                    <input type="email" class="form-control fw-bold" v-model="form.email">
                 </div>
                 <!-- password -->
                 <div class="form-group mb-3">
                     <label for="password" class="form-label">Password</label>
-                    <input type="password" class="form-control" v-model="form.password">
+                    <input type="password" class="form-control fw-bold" v-model="form.password">
                 </div>
                 <!-- submit -->
                 <button class="btn btn-primary w-100 mt-2 fw-bold">LOGIN</button>

@@ -13,3 +13,7 @@ export function showToast(message) {
         },
     }).showToast();
 }
+
+export function toUpper(form, field, event) {
+    form[field] = event.target.value.toUpperCase();
+}

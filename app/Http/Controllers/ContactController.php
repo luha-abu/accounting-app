@@ -42,7 +42,7 @@ class ContactController extends Controller
             'user_id' => $request->user()->id
         ]);
 
-        return redirect()->route('contacts.index');
+        return redirect()->route('contacts.index')->with('message', 'Contact has been created.');
     }
 
     /**
@@ -78,6 +78,6 @@ class ContactController extends Controller
             'user_id' => $request->user()->id
         ]);
 
-        return redirect()->route('contacts.index');
+        return redirect()->route('contacts.index')->with('message', 'Contact has been updated.');;
     }
 }
