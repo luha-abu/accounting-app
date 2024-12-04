@@ -42,17 +42,17 @@ const submit = () => {
                 <!-- city -->
                 <div class="form-group mb-3">
                     <label for="city" class="form-label">City</label>
-                    <input type="text" class="form-control fw-bold" v-model="form.city" @input="toUpper(form, 'name', $event)">
+                    <input type="text" class="form-control fw-bold" v-model="form.city" @input="toUpper(form, 'city', $event)">
                 </div>
                 <!-- state -->
                 <div class="form-group mb-3">
                     <label for="state" class="form-label">State</label>
-                    <input type="text" class="form-control fw-bold" v-model="form.state" @input="toUpper(form, 'name', $event)">
+                    <input type="text" class="form-control fw-bold" v-model="form.state" @input="toUpper(form, 'state', $event)">
                 </div>
                 <!-- phone -->
                 <div class="form-group mb-3">
                     <label for="phone" class="form-label">Phone</label>
-                    <input type="number" class="form-control fw-bold" v-model="form.phone" @input="toUpper(form, 'name', $event)">
+                    <input type="number" class="form-control fw-bold" v-model="form.phone" @input="toUpper(form, 'phone', $event)">
                 </div>
                 <!-- submit -->
                 <button class="btn btn-success w-100 mt-2 fw-bold">UPDATE</button>
