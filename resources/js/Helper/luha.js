@@ -1,4 +1,5 @@
 import Toastify from 'toastify-js';
+import moment from 'moment';
 
 export function showToast(message) {
     Toastify({
@@ -16,4 +17,8 @@ export function showToast(message) {
 
 export function toUpper(form, field, event) {
     form[field] = event.target.value.toUpperCase();
+}
+
+export function today() {
+    return moment().format('y-M-DD')
 }

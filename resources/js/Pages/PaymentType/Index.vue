@@ -21,14 +21,14 @@ const submit = () => {
             onSuccess: () => {
                 form.reset();
             }
-        },{preserveState: true})
+        })
         return;
     }
     form.post(route('paymentTypes.store'), {
         onSuccess: () => {
             form.reset();
         }
-    },  {preserveState: true});
+    });
 };
 
 const edit = (paymentType) => {
@@ -40,7 +40,6 @@ onMounted(() => {
     if (page.props.flash.message) {
         showToast(page.props.flash.message)
     }
-    console.log(page.props);
 })
 
 </script>
@@ -49,7 +48,7 @@ onMounted(() => {
         <nav class="navbar shadow-sm bg-body-tertiary">
             <div class="container-fluid">
                 <div class="left-bar">
-                    <span class="navbar-brand mb-0 h1 py-0"><Link :href="route('dashboard')" class="btn btn-link"><i class="bi bi-arrow-left"></i></Link>Payment Types</span>
+                    <span class="navbar-brand mb-0 h1 py-0"><Link :href="route('dashboard')" class="btn btn-link"><i class="bi bi-chevron-left"></i></Link>Payment Types</span>
                 </div>
             </div>
         </nav>

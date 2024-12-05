@@ -1,13 +1,13 @@
 <script setup>
 import { onMounted } from 'vue';
-import { Link, usePage } from '@inertiajs/vue3';
-import AppLayout from '@/Layouts/AppLayout.vue';
+import { Link, router, usePage } from '@inertiajs/vue3';
 import moment from 'moment';
 import { showToast } from '@/Helper/luha';
+import AppLayout from '@/Layouts/AppLayout.vue';
 
 const page = usePage();
 
-defineProps({
+const props = defineProps({
     payments: Array
 })
 
@@ -16,13 +16,16 @@ onMounted(() => {
     if (message) {
         showToast(message);
     }
+    if(props.payments.length === 0) {
+        router.visit(route('payments.summary'));
+    };
 });
 </script>
 <template>
     <AppLayout title="Payment Details">
         <nav class="navbar shadow-sm bg-body-tertiary">
             <div class="container-fluid">
-                <span class="navbar-brand mb-0 h1 py-0"><Link :href="route('payments.summary')" class="btn btn-link"><i class="bi bi-arrow-left"></i></Link>Payments</span>
+                <span class="navbar-brand mb-0 h1 py-0"><Link :href="route('payments.summary')" class="btn btn-link"><i class="bi bi-chevron-left"></i></Link>Payments</span>
             </div>
         </nav>
         <div class="container py-3">

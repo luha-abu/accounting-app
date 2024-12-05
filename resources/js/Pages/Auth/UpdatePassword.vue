@@ -26,7 +26,7 @@ const submit = () => {
         <nav class="navbar shadow-sm bg-body-tertiary">
             <div class="container-fluid">
                 <div class="left-bar">
-                    <span class="navbar-brand mb-0 h1 py-0"><Link :href="route('dashboard')" class="btn btn-link"><i class="bi bi-arrow-left"></i></Link>Update Password</span>
+                    <span class="navbar-brand mb-0 h1 py-0"><Link :href="route('dashboard')" class="btn btn-link"><i class="bi bi-chevron-left"></i></Link>Update Password</span>
                 </div>
             </div>
         </nav>
@@ -40,7 +40,7 @@ const submit = () => {
                     <label for="password_confirmation" class="form-label">Confirm Password</label>
                     <input id="password_confirmation" type="password" class="form-control" v-model="form.password_confirmation">
                 </div>
-                <button class="btn btn-primary w-100">Submit</button>
+                <button class="btn btn-primary w-100 fw-bold">UPDATE</button>
             </form>
         </div>
     </AppLayout>

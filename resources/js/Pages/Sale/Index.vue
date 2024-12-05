@@ -1,9 +1,9 @@
 <script setup>
 import { onMounted } from 'vue';
 import { Link, usePage } from '@inertiajs/vue3';
+import { showToast } from '@/Helper/luha';
 import moment from 'moment';
 import AppLayout from '@/Layouts/AppLayout.vue';
-import { showToast } from '@/Helper/luha';
 
 const page = usePage();
 
@@ -22,7 +22,7 @@ onMounted(() => {
     <AppLayout title="Contacts">
         <nav class="navbar shadow-sm bg-body-tertiary">
             <div class="container-fluid">
-                <span class="navbar-brand mb-0 h1 py-0"><Link :href="route('dashboard')" class="btn btn-link"><i class="bi bi-arrow-left"></i></Link>Sales</span>
+                <span class="navbar-brand mb-0 h1 py-0"><Link :href="route('dashboard')" class="btn btn-link"><i class="bi bi-chevron-left"></i></Link>Sales</span>
                 <Link :href="route('sales.create')" as="button" class="btn btn-sm btn-outline-success"><i class="bi bi-plus-lg me-2"></i>Add Sales</Link>
             </div>
         </nav>

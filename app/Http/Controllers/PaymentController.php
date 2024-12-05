@@ -118,20 +118,20 @@ class PaymentController extends Controller
     {
         $request->validate([
             'sale_id' => 'required',
-            'contact' => 'required',
+            'contact_id' => 'required',
             'amount' => 'required|numeric|gt:0'
         ]);
 
         $payment->update([
             'payment_date' => $request->payment_date,
-            'contact_id' => $request->contact,
+            'contact_id' => $request->contact_id,
             'sale_id' => $request->sale_id,
-            'payment_type_id' => $request->payment,
+            'payment_type_id' => $request->payment_id,
             'amount' => $request->amount,
             'user_id' => $request->user()->id
         ]);
 
-        return redirect()->route('payments.index');
+        return redirect()->route('payments.index')->with('message', 'payment has been updated.');;
     }
 
     /**

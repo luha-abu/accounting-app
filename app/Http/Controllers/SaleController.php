@@ -48,7 +48,7 @@ class SaleController extends Controller
             'user_id' => $request->user()->id
         ]);
 
-        return redirect()->route('sales.index');
+        return redirect()->route('sales.index')->with('message', 'Sale has been created.');;
     }
 
     /**
