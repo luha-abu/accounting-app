@@ -1,1 +1,0 @@
-import{o as a,c as l,a as r,u as o,Z as n,m as s}from"./app-BmX5tQBm.js";const i={__name:"AppLayout",props:{title:String},setup(e){return(t,c)=>(a(),l("div",null,[r(o(n),{title:e.title},null,8,["title"]),s(t.$slots,"default")]))}};export{i as _};
